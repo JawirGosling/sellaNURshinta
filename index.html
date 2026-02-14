@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Valentine 🤍</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #fff5f7, #ffffff);
+      color: #444;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #e88aa2;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #777;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: left;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.8s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    button {
+      margin-top: 25px;
+      background: #e88aa2;
+      color: white;
+      border: none;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 0 rgba(232,138,162,0.6);
+      animation: glow 2s infinite;
+    }
+
+    button:hover {
+      background: #d46f8a;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 0 rgba(232,138,162,0.6); }
+      50% { box-shadow: 0 0 20px rgba(232,138,162,0.4); }
+      100% { box-shadow: 0 0 0 rgba(232,138,162,0.6); }
+    }
+
+    .footer {
+      margin-top: 40px;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 18px;
+      animation: fall linear forwards;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Valentine 🤍</h1>
+    <p class="subtitle">Sebuah pesan kecil buat kamu</p>
+
+    <button onclick="showLetter()">Buka Pesan</button>
+
+    <div id="letter" class="card">
+      <p>Hai kamu 🤍</p>
+
+      <p>
+        Mungkin kita nggak selalu bisa punya waktu yang pas setiap saat.
+        Kadang kamu sibuk, kadang aku juga, dan itu hal yang wajar dalam hidup yang terus berjalan.
+      </p>
+
+      <p>
+        Tapi di antara semua kesibukan itu,
+        aku selalu senang karena kita tetap saling punya tempat untuk pulang —
+        meskipun cuma lewat cerita sederhana atau kehadiran kecil yang berarti.
+      </p>
+
+      <p>
+        Aku belajar kalau sayang itu bukan soal selalu bareng setiap waktu,
+        tapi tentang tetap memilih satu sama lain, dengan tenang dan tanpa ragu.
+      </p>
+
+      <p>
+        Terima kasih sudah jadi bagian dari hari-hariku,
+        dan semoga ke depannya kita bisa terus saling jaga,
+        dengan cara yang sederhana tapi nyata.
+      </p>
+      <p>coklat nanti nyusul😹</p>
+
+      <p><b>Happy Valentine 🤍</b></p>
+    </div>
+
+    <div class="footer">
+      dibuat dengan bang ganteng ramadhan wahyu😏
+    </div>
+  </div>
+
+  <script>
+    function showLetter() {
+      document.getElementById("letter").classList.add("show");
+    }
+
+    // generate falling hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+      heart.style.fontSize = 14 + Math.random() * 10 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
